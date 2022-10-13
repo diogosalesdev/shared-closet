@@ -1,0 +1,7 @@
+{
+    "name": "shared-closet",
+    "private": true,
+    "workspaces": {
+        "packages": ["./*"]
+    }
+}
