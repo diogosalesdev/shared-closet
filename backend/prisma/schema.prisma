@@ -21,3 +21,17 @@ model Client {
 
     @@map("clients")
 }
+
+model Employee {
+    id        String   @id @default(uuid())
+    name      String
+    rg        String   @unique
+    cpf       String   @unique
+    email     String   @unique
+    phone     String   @unique
+    address   String
+    createdAt DateTime @default(now())
+    updatedAt DateTime @default(now())
+
+    @@map("employees")
+}
