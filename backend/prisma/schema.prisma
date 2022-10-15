@@ -35,3 +35,12 @@ model Employee {
 
     @@map("employees")
 }
+
+model Category {
+    categoryId String   @id @default(uuid())
+    name       String   @unique
+    createdAt  DateTime @default(now())
+    updatedAt  DateTime @default(now())
+
+    @@map("categories")
+}
