@@ -25,7 +25,7 @@ export class ClotheService {
 	}
 
 	async findAll() {
-		return this.prisma.clothe.findMany();
+		return await this.prisma.clothe.findMany();
 	}
 
 	async update(clothesId: string, data: ClotheDTO) {

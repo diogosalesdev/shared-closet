@@ -55,6 +55,19 @@ model Clothe {
     size       String
     createdAt  DateTime @default(now())
     updatedAt  DateTime @default(now())
+    Storage    Storage?
 
     @@map("clothes")
+}
+
+model Storage {
+    storageId String   @id @default(uuid())
+    clothesId String   @unique
+    clothe    Clothe   @relation(fields: [clothesId], references: [clothesId])
+    amount    Int
+    available Boolean
+    createdAt DateTime @default(now())
+    updatedAt DateTime @default(now())
+
+    @@map("storage")
 }

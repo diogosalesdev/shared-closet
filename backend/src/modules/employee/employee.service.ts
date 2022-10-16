@@ -25,7 +25,7 @@ export class EmployeeService {
 	}
 
 	async findAll() {
-		return this.prisma.employee.findMany();
+		return await this.prisma.employee.findMany();
 	}
 
 	async update(id: string, data: EmployeeDTO) {

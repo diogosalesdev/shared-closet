@@ -25,7 +25,7 @@ export class CategoryService {
 	}
 
 	async findAll() {
-		return this.prisma.category.findMany();
+		return await this.prisma.category.findMany();
 	}
 
 	async update(categoryId: string, data: CategoryDTO) {

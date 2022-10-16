@@ -25,7 +25,7 @@ export class ClientService {
 	}
 
 	async findAll() {
-		return this.prisma.client.findMany();
+		return await this.prisma.client.findMany();
 	}
 
 	async update(id: string, data: ClientDTO) {
