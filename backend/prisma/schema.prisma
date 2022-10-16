@@ -41,6 +41,20 @@ model Category {
     name       String   @unique
     createdAt  DateTime @default(now())
     updatedAt  DateTime @default(now())
+    Clothe     Clothe[]
 
     @@map("categories")
+}
+
+model Clothe {
+    clothesId  String   @id @default(uuid())
+    name       String
+    categoryId String
+    category   Category @relation(fields: [categoryId], references: [categoryId])
+    color      String
+    size       String
+    createdAt  DateTime @default(now())
+    updatedAt  DateTime @default(now())
+
+    @@map("clothes")
 }
