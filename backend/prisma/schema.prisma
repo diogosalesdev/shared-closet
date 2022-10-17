@@ -57,6 +57,8 @@ model Clothe {
     category   Category @relation(fields: [categoryId], references: [categoryId])
     color      String
     size       String
+    rentPrice  Float
+    salePrice  Float
     createdAt  DateTime @default(now())
     updatedAt  DateTime @default(now())
     Storage    Storage?
