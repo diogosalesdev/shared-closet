@@ -7,9 +7,10 @@ import { StorageModule } from './modules/storage/storage.module';
 import { UserModule } from './modules/user/user.module';
 import { EventModule } from './modules/event/event.module';
 import { RentModule } from './modules/rent/rent.module';
+import { SaleModule } from './modules/sale/sale.module';
 
 @Module({
-	imports: [ ClientModule, EmployeeModule, CategoryModule, ClotheModule, StorageModule, UserModule, EventModule, RentModule ],
+	imports: [ ClientModule, EmployeeModule, CategoryModule, ClotheModule, StorageModule, UserModule, EventModule, RentModule, SaleModule ],
 	controllers: [],
 	providers: []
 })
