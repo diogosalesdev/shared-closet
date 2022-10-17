@@ -79,6 +79,17 @@ model User {
     type      String
     createdAt DateTime @default(now())
     updatedAt DateTime @default(now())
+    Event     Event?
 
     @@map("users")
+}
+
+model Event {
+    eventId     String   @id @default(uuid())
+    userId      String   @unique
+    user        User     @relation(fields: [userId], references: [userId])
+    description String
+    createdAt   DateTime @default(now())
+
+    @@map("events")
 }
