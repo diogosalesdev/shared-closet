@@ -71,3 +71,14 @@ model Storage {
 
     @@map("storage")
 }
+
+model User {
+    userId    String   @id @default(uuid())
+    username  String   @unique
+    password  String   @unique
+    type      String
+    createdAt DateTime @default(now())
+    updatedAt DateTime @default(now())
+
+    @@map("users")
+}
