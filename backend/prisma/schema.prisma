@@ -18,6 +18,8 @@ model Client {
     address   String
     createdAt DateTime @default(now())
     updatedAt DateTime @default(now())
+    Rent      Rent?
+    Sale      Sale?
 
     @@map("clients")
 }
@@ -32,6 +34,8 @@ model Employee {
     address    String
     createdAt  DateTime @default(now())
     updatedAt  DateTime @default(now())
+    Rent       Rent?
+    Sale       Sale?
 
     @@map("employees")
 }
@@ -56,6 +60,8 @@ model Clothe {
     createdAt  DateTime @default(now())
     updatedAt  DateTime @default(now())
     Storage    Storage?
+    Rent       Rent?
+    Sale       Sale?
 
     @@map("clothes")
 }
@@ -92,4 +98,34 @@ model Event {
     createdAt   DateTime @default(now())
 
     @@map("events")
+}
+
+model Rent {
+    rentId         String   @id @default(uuid())
+    clotheId       String   @unique
+    clothe         Clothe   @relation(fields: [clotheId], references: [clothesId])
+    clientId       String   @unique
+    client         Client   @relation(fields: [clientId], references: [id])
+    employeeId     String   @unique
+    employee       Employee @relation(fields: [employeeId], references: [employeeId])
+    withdrawalDate DateTime
+    returnDate     DateTime
+    createdAt      DateTime @default(now())
+    updatedAt      DateTime @default(now())
+
+    @@map("rents")
+}
+
+model Sale {
+    saleId     String   @id @default(uuid())
+    clotheId   String   @unique
+    clothe     Clothe   @relation(fields: [clotheId], references: [clothesId])
+    clientId   String   @unique
+    client     Client   @relation(fields: [clientId], references: [id])
+    employeeId String   @unique
+    employee   Employee @relation(fields: [employeeId], references: [employeeId])
+    createdAt  DateTime @default(now())
+    updatedAt  DateTime @default(now())
+
+    @@map("sales")
 }
